@@ -126,17 +126,6 @@ func setup() *web.Mux {
 		}))
 	}
 
-	// make directories if needed
-	err := os.MkdirAll(Config.filesDir, 0755)
-	if err != nil {
-		log.Fatal("Could not create files directory:", err)
-	}
-
-	err = os.MkdirAll(Config.metaDir, 0700)
-	if err != nil {
-		log.Fatal("Could not create metadata directory:", err)
-	}
-
 	if Config.siteURL != "" {
 		// ensure siteURL ends wth '/'
 		if lastChar := Config.siteURL[len(Config.siteURL)-1:]; lastChar != "/" {
